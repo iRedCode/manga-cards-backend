@@ -7,10 +7,10 @@ const cards = [
     { id: 4, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
     { id: 5, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
     { id: 6, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
-    { id: 7, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
-    { id: 8, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
-    { id: 9, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
-    { id: 10, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" },
-    { id: 11, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.png" }
+    { id: 7, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.jpg" },
+    { id: 8, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.jpg" },
+    { id: 9, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.jpg" },
+    { id: 10, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.jpg" },
+    { id: 11, name: "Твой Персонаж 4", anime: "Твое Аниме", rank: "S", image: "https://iredcode.github.io/telegram-mini-app/card4.jpg" }
 ];
 module.exports = cards;
