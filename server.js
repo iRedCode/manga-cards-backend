@@ -80,6 +80,26 @@ app.post('/api/add_coins', (req, res) => {
     res.json({ success: true, coins: user.coins });
 });
 
+// НОВЫЙ МАРШРУТ: Мини-игра "Сундуки Удачи"
+app.post('/api/play_chests', (req, res) => {
+    const { telegram_id, choice } = req.body; // choice - это номер сундука (0, 1 или 2)
+    const user = database[telegram_id];
+    
+    if (!user) return res.status(404).json({ error: "Пользователь не найден" });
+    if (user.coins < 20) return res.status(400).json({ error: "Недостаточно монет для ставки (нужно 20)" });
+
+    user.coins -= 20; // Списываем ставку
+
+    // Призы: Пусто, Возврат, Джекпот. Перемешиваем их случайным образом!
+    const prizes = [0, 20, 50].sort(() => Math.random() - 0.5);
+    
+    // Смотрим, какой приз лежал в сундуке, который выбрал игрок
+    const wonAmount = prizes[choice];
+    user.coins += wonAmount; // Начисляем выигрыш (или 0)
+
+    // Отправляем ответ: баланс, сколько выиграл, и что лежало во всех сундуках
+    res.json({ success: true, coins: user.coins, win: wonAmount, prizes: prizes });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`); });
