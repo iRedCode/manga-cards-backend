@@ -37,6 +37,26 @@ app.post('/api/open_pack', (req, res) => {
     res.json({ success: true, coins: user.coins, newCard: randomCard });
 });
 
+// Функция: Создание пользовательской карты
+app.post('/api/create_card', (req, res) => {
+    const { name, anime, rank, image } = req.body;
+    
+    // Создаем новую карту
+    const newCard = {
+        id: allCards.length + 1, // Даем следующий порядковый номер
+        name: name || "Неизвестный",
+        anime: anime || "Неизвестно",
+        rank: rank || "E",
+        image: image // Здесь будет лежать картинка в формате Base64
+    };
+
+    // Добавляем её в общую базу карт
+    allCards.push(newCard);
+
+    // Отвечаем, что всё прошло успешно
+    res.json({ success: true, card: newCard });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
