@@ -65,5 +65,21 @@ app.post('/api/update_profile', (req, res) => {
     res.json({ success: true, user });
 });
 
+// НОВЫЙ МАРШРУТ: Сохранение накликанных монет из Шахты
+app.post('/api/add_coins', (req, res) => {
+    const { telegram_id, amount } = req.body;
+    const user = database[telegram_id];
+    
+    if (!user) return res.status(404).json({ error: "Пользователь не найден" });
+    
+    // Защита от читеров: не больше 100 монет за один запрос (каждые 3 секунды)
+    if (amount > 0 && amount <= 100) {
+        user.coins += amount;
+    }
+    
+    res.json({ success: true, coins: user.coins });
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => { console.log(`Сервер запущен на порту ${PORT}`); });
