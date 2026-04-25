@@ -4,7 +4,8 @@ const allCards = require('./cards'); // Подключаем наш новый �
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' })); // Разрешаем принимать большие картинки
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 const database = {};
 
